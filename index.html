@@ -153,6 +153,12 @@
     </style>
 </head>
 <body>
+    <!-- Navigationsmenü hinzufügen -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="team.html">Wir sind</a>
+    </nav>
+
     <!-- Banner Bereich -->
     <div class="banner">
         <img src="banner.jpg.jpeg" alt="Banner">
@@ -190,15 +196,6 @@
             </div>
         </div>
 
-        <div class="chat-section">
-            <h2>Ihre Fragen</h2>
-            <p>Stellen Sie hier Ihre Fragen zu Versicherungen:</p>
-            <div class="chat-input">
-                <input type="text" id="userQuestion" placeholder="Ihre Frage...">
-                <button onclick="sendQuestion()">Fragen</button>
-            </div>
-        </div>
-
         <div class="feedback-section">
             <h2>Ihr Feedback</h2>
             <p>Wie war Ihre Erfahrung mit unserem KI-Berater? Ihre Meinung ist uns wichtig!</p>
@@ -209,14 +206,6 @@
     </div>
 
     <script>
-        function sendQuestion() {
-            const question = document.getElementById('userQuestion').value;
-            if (question.trim() !== '') {
-                console.log('Frage gesendet:', question);
-                document.getElementById('userQuestion').value = '';
-            }
-        }
-
         function sendFeedback() {
             const feedback = document.getElementById('feedbackText').value;
             if (feedback.trim() !== '') {
