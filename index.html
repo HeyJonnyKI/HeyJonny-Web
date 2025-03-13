@@ -4,109 +4,188 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Versicherungs-Berater AI</title>
-    <script
-        type="module"
-        src="https://agent.d-id.com/v1/index.js"
-        data-name="did-agent"
-        data-mode="fabio"
-        data-client-key="Z29vZ2xlLW9hdXRoMnwxMDczMDg5MjE3MDg3NjIwODk1NTQ6cGI3Z1lzd3Y4T3FrcjNJb3FQM19Z"
-        data-agent-id="agt_I5dmOb_6"
-        data-monitor="true">
-    </script>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+            line-height: 1.6;
             background-color: #f5f5f5;
         }
-        .intro-text {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .avatar-container {
-            width: 100%;
-            max-width: 800px;
+
+        .content {
+            max-width: 1200px;
             margin: 0 auto;
-            border-radius: 10px;
-            overflow: hidden;
-            background-color: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 40px 20px;
         }
-        .chat-container {
+
+        .intro-section {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .intro-section {
+                flex-direction: column;
+            }
+        }
+
+        .intro-text {
+            flex: 1;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .agent-container {
+            flex: 1;
+            background-color: white;
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            min-height: 400px;
+        }
+
+        .agent-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .chat-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .chat-input {
+            display: flex;
+            gap: 10px;
             margin-top: 20px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            background-color: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        .feedback-container {
-            margin-top: 40px;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+        .chat-input input {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
         }
+
+        .feedback-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
         button {
-            padding: 10px 20px;
+            padding: 15px 30px;
             background-color: #007bff;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
         }
+
         button:hover {
             background-color: #0056b3;
         }
+
         textarea {
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
             resize: vertical;
+            min-height: 120px;
+            font-size: 16px;
+        }
+
+        h1, h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 15px;
         }
     </style>
 </head>
 <body>
-    <div class="intro-text">
-        <h1>Ihr Versicherungs-Berater</h1>
-        <p>Willkommen bei Ihrem persönlichen KI-Versicherungsberater! Ich bin hier, um Ihnen bei allen Fragen rund um das Thema Versicherungen zu helfen. Egal ob Sie Informationen zu verschiedenen Versicherungsarten suchen oder spezifische Fragen zu Tarifen haben - ich stehe Ihnen gerne zur Verfügung.</p>
-        <p>Sie können mir Ihre Fragen einfach im Chatfeld unten stellen, und ich werde Ihnen bestmöglich weiterhelfen.</p>
-    </div>
-    
-    <div class="avatar-container">
-        <iframe
-            src="https://studio.d-id.com/agents/share?id=agt_I5dmOb_6&utm_source=copy&key=WjI5dloyeGxMVzloZFhSb01ud3hNRGN6TURnNU1qRTNNRGczTmpJd09EazFOVFE2Y0dJM1oxbHpkM1k0VDNGcmNqTkpiM0ZRTTE5Wg=="
-            width="100%"
-            height="600"
-            frameborder="0"
-            allow="camera;microphone;autoplay;clipboard-write;encrypted-media;picture-in-picture"
-        ></iframe>
+    <!-- Banner Bereich -->
+    <div class="banner">
+        <img src="IHR_ERSTES_BILD.jpg" alt="Banner">
     </div>
 
-    <div class="chat-container">
-        <input type="text" id="userQuestion" placeholder="Stellen Sie Ihre Frage..." style="width: 80%; padding: 10px;">
-        <button onclick="sendQuestion()">Fragen</button>
-    </div>
+    <div class="content">
+        <!-- Vorstellungsbereich -->
+        <div class="intro-section">
+            <div class="intro-text">
+                <h1>Ihr persönlicher Versicherungs-Berater</h1>
+                <p>Willkommen! Ich bin Ihr KI-gestützter Versicherungsberater und stehe Ihnen bei allen Fragen rund um das Thema Versicherungen zur Seite.</p>
+                <p>Mit meiner Expertise helfe ich Ihnen dabei:</p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>Die passenden Versicherungen für Ihre Bedürfnisse zu finden</li>
+                    <li>Komplexe Versicherungsthemen einfach zu erklären</li>
+                    <li>Ihre individuellen Fragen zu beantworten</li>
+                </ul>
+                <p>Sprechen Sie mich einfach an - ich freue mich darauf, Ihnen weiterzuhelfen!</p>
+            </div>
+            <div class="intro-image">
+                <img src="IHR_ZWEITES_BILD.jpg" alt="Vorstellung">
+            </div>
+        </div>
 
-    <div class="feedback-container">
-        <h2>Ihr Feedback</h2>
-        <p>Wie war Ihre Erfahrung mit unserem KI-Berater? Wir freuen uns über Ihre Rückmeldung!</p>
-        <textarea id="feedbackText" rows="4" placeholder="Schreiben Sie hier Ihr Feedback..."></textarea>
-        <button onclick="sendFeedback()">Feedback senden</button>
-        <div id="feedbackMessages"></div>
+        <!-- D-ID Agent als Hauptattraktion -->
+        <div class="agent-section">
+            <div class="agent-container">
+                <iframe
+                    src="https://studio.d-id.com/agents/share?id=agt_I5dmOb_6&utm_source=copy&key=WjI5dloyeGxMVzloZFhSb01ud3hNRGN6TURnNU1qRTNNRGczTmpJd09EazFOVFE2Y0dJM1oxbHpkM1k0VDNGcmNqTkpiM0ZRTTE5Wg=="
+                    allow="camera;microphone;autoplay;clipboard-write;encrypted-media;picture-in-picture">
+                </iframe>
+            </div>
+        </div>
+
+        <div class="chat-section">
+            <h2>Ihre Fragen</h2>
+            <p>Stellen Sie hier Ihre Fragen zu Versicherungen:</p>
+            <div class="chat-input">
+                <input type="text" id="userQuestion" placeholder="Ihre Frage...">
+                <button onclick="sendQuestion()">Fragen</button>
+            </div>
+        </div>
+
+        <div class="feedback-section">
+            <h2>Ihr Feedback</h2>
+            <p>Wie war Ihre Erfahrung mit unserem KI-Berater? Ihre Meinung ist uns wichtig!</p>
+            <textarea id="feedbackText" placeholder="Schreiben Sie hier Ihr Feedback..."></textarea>
+            <button onclick="sendFeedback()">Feedback senden</button>
+            <div id="feedbackMessages"></div>
+        </div>
     </div>
 
     <script>
         function sendQuestion() {
             const question = document.getElementById('userQuestion').value;
-            console.log('Frage gesendet:', question);
+            if (question.trim() !== '') {
+                console.log('Frage gesendet:', question);
+                document.getElementById('userQuestion').value = '';
+            }
         }
 
         function sendFeedback() {
