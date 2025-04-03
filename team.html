@@ -260,30 +260,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- D-ID Agent -->
-        <div class="section-wrapper">
-            <div class="section-content">
-                <h2>Ihr digitaler Berater</h2>
-                <div class="agent-container">
-                    <iframe
-                        src="https://studio.d-id.com/agents/share?id=agt_I5dmOb_6&utm_source=copy&key=WjI5dloyeGxMVzloZFhSb01ud3hNRGN6TURnNU1qRTNNRGczTmpJd09EazFOVFE2Y0dJM1oxbHpkM1k0VDNGcmNqTkpiM0ZRTTE5Wg=="
-                        allow="camera;microphone;autoplay;clipboard-write;encrypted-media;picture-in-picture">
-                    </iframe>
-                </div>
-            </div>
-        </div>
-
-        <!-- Feedback Bereich -->
-        <div class="section-wrapper">
-            <div class="section-content">
-                <h2>Ihr Feedback</h2>
-                <p>Wie war Ihre Erfahrung mit unserem KI-Berater? Ihre Meinung ist uns wichtig!</p>
-                <textarea id="feedbackText" placeholder="Schreiben Sie hier Ihr Feedback..." rows="5"></textarea>
-                <button onclick="sendFeedback()">Feedback senden</button>
-                <div id="feedbackMessages"></div>
-            </div>
-        </div>
     </div>
 
     <!-- Footer -->
@@ -314,19 +290,5 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        function sendFeedback() {
-            const feedback = document.getElementById('feedbackText').value;
-            if (feedback.trim() !== '') {
-                const feedbackMessages = document.getElementById('feedbackMessages');
-                const message = document.createElement('p');
-                message.textContent = 'Vielen Dank für Ihr Feedback!';
-                message.style.color = '#2ecc71';
-                feedbackMessages.appendChild(message);
-                document.getElementById('feedbackText').value = '';
-            }
-        }
-    </script>
 </body>
 </html>

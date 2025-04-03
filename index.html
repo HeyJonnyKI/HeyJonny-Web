@@ -154,60 +154,41 @@
         }
 
         nav {
-            background: linear-gradient(to right, rgba(255,255,255,0.95), rgba(248,249,250,0.95));
+            background: linear-gradient(135deg, #2c3e50, #3498db);
             padding: 20px 0;
-            text-align: center;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         nav a {
             display: inline-block;
-            margin: 0 15px;
             padding: 12px 30px;
             text-decoration: none;
             font-size: 18px;
-            color: #333;
+            color: white;
             border-radius: 30px;
             transition: all 0.3s ease;
-            background: linear-gradient(
-                45deg,
-                rgba(255, 204, 0, 0.1),
-                rgba(255, 204, 0, 0.2)
-            );
-            border: 1px solid rgba(255, 204, 0, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        nav a:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                45deg,
-                rgba(255, 204, 0, 0.2),
-                rgba(255, 204, 0, 0.4)
-            );
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
         }
 
         nav a:hover {
-            color: #000;
+            background: rgba(255, 255, 255, 0.2);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 204, 0, 0.2);
-        }
-
-        nav a:hover:before {
-            transform: translateX(0);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         /* Neuer Footer-Stil */
@@ -290,9 +271,11 @@
 <body>
     <!-- Navigationsmenü -->
     <nav>
-        <a href="index.html">Home</a>
-        <a href="team.html">Wir sind</a>
-        <a href="rente.html">Sichere Rente</a>
+        <div class="nav-buttons">
+            <a href="index.html">Home</a>
+            <a href="team.html">Wir sind</a>
+            <a href="rente.html">Sichere Rente</a>
+        </div>
     </nav>
 
     <!-- Banner Bereich -->
@@ -305,12 +288,12 @@
 
     <div class="content">
         <!-- Vorstellungsbereich -->
-        <div class="intro-section">
-            <div class="intro-text">
+        <div class="section-wrapper">
+            <div class="section-content">
                 <h1>Ihr persönlicher Versicherungs-Berater</h1>
                 <p>Willkommen! Ich bin Ihr KI-gestützter Versicherungsberater und stehe Ihnen bei allen Fragen rund um das Thema Versicherungen zur Seite.</p>
                 <p>Mit meiner Expertise helfe ich Ihnen dabei:</p>
-                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                <ul style="color: white; margin-left: 20px; margin-bottom: 15px;">
                     <li>Die passenden Versicherungen für Ihre Bedürfnisse zu finden</li>
                     <li>Komplexe Versicherungsthemen einfach zu erklären</li>
                     <li>Ihre individuellen Fragen zu beantworten</li>
@@ -319,29 +302,27 @@
             </div>
         </div>
 
-        <!-- D-ID Agent als Hauptattraktion -->
-        <div class="agent-section">
-            <div class="agent-container">
-                <iframe
-                    src="https://studio.d-id.com/agents/share?id=agt_I5dmOb_6&utm_source=copy&key=WjI5dloyeGxMVzloZFhSb01ud3hNRGN6TURnNU1qRTNNRGczTmpJd09EazFOVFE2Y0dJM1oxbHpkM1k0VDNGcmNqTkpiM0ZRTTE5Wg=="
-                    allow="camera;microphone;autoplay;clipboard-write;encrypted-media;picture-in-picture">
-                </iframe>
+        <!-- D-ID Agent -->
+        <div class="section-wrapper">
+            <div class="section-content">
+                <h2>Ihr digitaler Berater</h2>
+                <div class="agent-container">
+                    <iframe
+                        src="https://studio.d-id.com/agents/share?id=agt_I5dmOb_6&utm_source=copy&key=WjI5dloyeGxMVzloZFhSb01ud3hNRGN6TURnNU1qRTNNRGczTmpJd09EazFOVFE2Y0dJM1oxbHpkM1k0VDNGcmNqTkpiM0ZRTTE5Wg=="
+                        allow="camera;microphone;autoplay;clipboard-write;encrypted-media;picture-in-picture">
+                    </iframe>
+                </div>
             </div>
         </div>
 
-        <div class="feedback-section">
-            <h2>Ihr Feedback</h2>
-            <p>Wie war Ihre Erfahrung mit unserem KI-Berater? Ihre Meinung ist uns wichtig!</p>
-            <textarea id="feedbackText" placeholder="Schreiben Sie hier Ihr Feedback..."></textarea>
-            <button onclick="sendFeedback()">Feedback senden</button>
-            <div id="feedbackMessages"></div>
-        </div>
-
-        <div class="team-section">
-            <div class="team-content">
-                <h1>Unser Team</h1>
-                <p>Lernen Sie unser erfahrenes Team kennen</p>
-                <img src="vorstellung.jpg.jpeg" alt="Unser Team" class="team-image">
+        <!-- Feedback Bereich -->
+        <div class="section-wrapper">
+            <div class="section-content">
+                <h2>Ihr Feedback</h2>
+                <p>Wie war Ihre Erfahrung mit unserem KI-Berater? Ihre Meinung ist uns wichtig!</p>
+                <textarea id="feedbackText" placeholder="Schreiben Sie hier Ihr Feedback..." rows="5"></textarea>
+                <button onclick="sendFeedback()">Feedback senden</button>
+                <div id="feedbackMessages"></div>
             </div>
         </div>
     </div>

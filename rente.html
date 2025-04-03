@@ -163,40 +163,41 @@
         }
 
         nav {
-            background: linear-gradient(to right, rgba(255,255,255,0.95), rgba(248,249,250,0.95));
-            padding: 15px 0;
-            text-align: center;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            padding: 20px 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         nav a {
             display: inline-block;
-            margin: 0 15px;
             padding: 12px 30px;
             text-decoration: none;
             font-size: 18px;
-            color: #333;
+            color: white;
             border-radius: 30px;
             transition: all 0.3s ease;
-            background: linear-gradient(
-                45deg,
-                rgba(255, 204, 0, 0.1),
-                rgba(255, 204, 0, 0.2)
-            );
-            border: 1px solid rgba(255, 204, 0, 0.3);
-            position: relative;
-            overflow: hidden;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
         }
 
         nav a:hover {
-            color: #000;
+            background: rgba(255, 255, 255, 0.2);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 204, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         /* Spezifische Anpassung für das Zins-Auswahlmenü */
@@ -214,9 +215,11 @@
 <body>
     <!-- Navigationsmenü -->
     <nav>
-        <a href="index.html">Home</a>
-        <a href="team.html">Wir sind</a>
-        <a href="rente.html">Sichere Rente</a>
+        <div class="nav-buttons">
+            <a href="index.html">Home</a>
+            <a href="team.html">Wir sind</a>
+            <a href="rente.html">Sichere Rente</a>
+        </div>
     </nav>
 
     <div class="content">
@@ -263,54 +266,61 @@
         </div>
 
         <!-- Rentenrechner Bereich -->
-        <div class="calculator-wrapper">
-            <div class="calculator-container">
-                <h2>Rentenrechner</h2>
-                <div class="input-grid">
-                    <div class="input-group">
-                        <label for="age">Ihr aktuelles Alter</label>
-                        <input type="number" id="age" min="18" max="66" placeholder="Alter eingeben">
-                    </div>
-                    
-                    <div class="input-group">
-                        <label for="monthlyContribution">Monatlicher Beitrag (Min. 25€)</label>
-                        <input type="number" id="monthlyContribution" min="25" placeholder="Monatsbeitrag">
+        <div class="section-wrapper">
+            <div class="section-content">
+                <h1>Rentenrechner</h1>
+                <div class="calculator-container">
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label for="age">Ihr aktuelles Alter</label>
+                            <input type="number" id="age" min="18" max="66" placeholder="Alter eingeben">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="monthlyContribution">Monatlicher Beitrag (Min. 25€)</label>
+                            <input type="number" id="monthlyContribution" min="25" placeholder="Monatsbeitrag">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="initialContribution">Einmalbeitrag zu Beginn</label>
+                            <input type="number" id="initialContribution" min="0" placeholder="Einmalbeitrag">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="interestRate">Erwartete Verzinsung</label>
+                            <select id="interestRate">
+                                <option value="3">3% - Minimal zu erwartender Zins</option>
+                                <option value="6">6% - Durchschnittlich zu erwartender Zins</option>
+                                <option value="9">9% - Best zu erwartender Zins</option>
+                            </select>
+                        </div>
                     </div>
 
-                    <div class="input-group">
-                        <label for="initialContribution">Einmalbeitrag zu Beginn</label>
-                        <input type="number" id="initialContribution" min="0" placeholder="Einmalbeitrag">
+                    <div class="results-container">
+                        <div class="result-box">
+                            <h3>Eingezahlte Beiträge</h3>
+                            <p id="totalContributions">0,00 €</p>
+                        </div>
+                        <div class="result-box">
+                            <h3>Zinsertrag</h3>
+                            <p id="interestGained">0,00 €</p>
+                        </div>
+                        <div class="result-box total">
+                            <h3>Gesamtergebnis mit 67</h3>
+                            <p id="totalResult">0,00 €</p>
+                        </div>
                     </div>
 
-                    <div class="input-group">
-                        <label for="interestRate">Erwartete Verzinsung</label>
-                        <select id="interestRate">
-                            <option value="3">3% - Minimal zu erwartender Zins</option>
-                            <option value="6">6% - Durchschnittlich zu erwartender Zins</option>
-                            <option value="9">9% - Best zu erwartender Zins</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="results-container">
-                    <div class="result-box">
-                        <h3>Eingezahlte Beiträge</h3>
-                        <p id="totalContributions">0,00 €</p>
-                    </div>
-                    <div class="result-box">
-                        <h3>Zinsertrag</h3>
-                        <p id="interestGained">0,00 €</p>
-                    </div>
-                    <div class="result-box total">
-                        <h3>Gesamtergebnis mit 67</h3>
-                        <p id="totalResult">0,00 €</p>
+                    <!-- Hinweistext innerhalb der Calculator-Container -->
+                    <div class="disclaimer" style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2);">
+                        <p style="font-size: 8px; color: rgba(255,255,255,0.7); text-align: justify;">
+                            * Berechnungen sind ohne Dynamik und Kosten. Diese Berechnung ist nicht rechtlich bindend, 
+                            sondern nur eine Hochrechnung des vermuteten Durchschnittszinses aufgrund der Lage der 
+                            historischen Daten von MSCI World.
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="disclaimer">
-            <p>* Berechnungen sind ohne Dynamik und Kosten. Diese Berechnung ist nicht rechtlich bindend, sondern nur eine Hochrechnung des vermuteten Durchschnittszinses aufgrund der Lage der historischen Daten von MSCI World.</p>
         </div>
     </div>
 
