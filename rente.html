@@ -89,26 +89,13 @@
             font-weight: 500;
         }
 
-        .input-group input,
-        .input-group select {
+        .input-group input {
             padding: 12px;
             border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 8px;
             background: rgba(255, 255, 255, 0.1);
             color: white;
             font-size: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .input-group input:focus,
-        .input-group select:focus {
-            outline: none;
-            border-color: rgba(255, 255, 255, 0.8);
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .input-group input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
         }
 
         .results-container {
@@ -269,55 +256,55 @@
         <div class="section-wrapper">
             <div class="section-content">
                 <h1>Rentenrechner</h1>
-                <div class="calculator-container">
-                    <div class="input-grid">
-                        <div class="input-group">
-                            <label for="age">Ihr aktuelles Alter</label>
-                            <input type="number" id="age" min="18" max="66" placeholder="Alter eingeben">
+                <div class="calculator-wrapper">
+                    <div class="calculator-container">
+                        <h2>Rentenrechner</h2>
+                        <div class="input-grid">
+                            <div class="input-group">
+                                <label for="age">Ihr aktuelles Alter</label>
+                                <input type="number" id="age" min="18" max="66" placeholder="Alter eingeben">
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="monthlyContribution">Monatlicher Beitrag (Min. 25€)</label>
+                                <input type="number" id="monthlyContribution" min="25" placeholder="Monatsbeitrag">
+                            </div>
+
+                            <div class="input-group">
+                                <label for="initialContribution">Einmalbeitrag zu Beginn</label>
+                                <input type="number" id="initialContribution" min="0" placeholder="Einmalbeitrag">
+                            </div>
+
+                            <div class="input-group">
+                                <label for="interestRate">Erwartete Verzinsung</label>
+                                <select id="interestRate" style="color: #333; background-color: rgba(255, 255, 255, 0.9);">
+                                    <option value="3">3% - Minimal zu erwartender Zins</option>
+                                    <option value="6">6% - Durchschnittlich zu erwartender Zins</option>
+                                    <option value="9">9% - Best zu erwartender Zins</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="results-container">
+                            <div class="result-box">
+                                <h3>Eingezahlte Beiträge</h3>
+                                <p id="totalContributions">0,00 €</p>
+                            </div>
+                            <div class="result-box">
+                                <h3>Zinsertrag</h3>
+                                <p id="interestGained">0,00 €</p>
+                            </div>
+                            <div class="result-box total">
+                                <h3>Gesamtergebnis mit 67</h3>
+                                <p id="totalResult">0,00 €</p>
+                            </div>
                         </div>
                         
-                        <div class="input-group">
-                            <label for="monthlyContribution">Monatlicher Beitrag (Min. 25€)</label>
-                            <input type="number" id="monthlyContribution" min="25" placeholder="Monatsbeitrag">
+                        <div style="margin-top: 15px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.2);">
+                            <p style="font-size: 8px; color: rgba(255,255,255,0.9); text-align: left;">
+                                * Berechnungen sind ohne Dynamik und Kosten. Diese Berechnung ist nicht rechtlich bindend, sondern nur eine Hochrechnung des vermuteten Durchschnittszinses aufgrund der Lage der historischen Daten von MSCI World.
+                            </p>
                         </div>
-
-                        <div class="input-group">
-                            <label for="initialContribution">Einmalbeitrag zu Beginn</label>
-                            <input type="number" id="initialContribution" min="0" placeholder="Einmalbeitrag">
-                        </div>
-
-                        <div class="input-group">
-                            <label for="interestRate">Erwartete Verzinsung</label>
-                            <select id="interestRate">
-                                <option value="3">3% - Minimal zu erwartender Zins</option>
-                                <option value="6">6% - Durchschnittlich zu erwartender Zins</option>
-                                <option value="9">9% - Best zu erwartender Zins</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="results-container">
-                        <div class="result-box">
-                            <h3>Eingezahlte Beiträge</h3>
-                            <p id="totalContributions">0,00 €</p>
-                        </div>
-                        <div class="result-box">
-                            <h3>Zinsertrag</h3>
-                            <p id="interestGained">0,00 €</p>
-                        </div>
-                        <div class="result-box total">
-                            <h3>Gesamtergebnis mit 67</h3>
-                            <p id="totalResult">0,00 €</p>
-                        </div>
-                    </div>
-
-                    <!-- Hinweistext innerhalb der Calculator-Container -->
-                    <div class="disclaimer" style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2);">
-                        <p style="font-size: 8px; color: rgba(255,255,255,0.7); text-align: justify;">
-                            * Berechnungen sind ohne Dynamik und Kosten. Diese Berechnung ist nicht rechtlich bindend, 
-                            sondern nur eine Hochrechnung des vermuteten Durchschnittszinses aufgrund der Lage der 
-                            historischen Daten von MSCI World.
-                        </p>
                     </div>
                 </div>
             </div>
