@@ -15,29 +15,130 @@
             font-family: Arial, sans-serif;
             line-height: 1.6;
             background-color: #f5f5f5;
+            padding-top: 90px;
+            margin: 0;
         }
 
-        .navbar {
-            background-color: #007bff;
-            padding: 10px;
+        nav {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.2);
         }
 
-        .navbar a {
-            color: white;
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav a {
+            display: inline-block;
+            padding: 12px 30px;
             text-decoration: none;
-            margin: 0 15px;
             font-size: 18px;
-            transition: color 0.3s;
+            color: white;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
         }
 
-        .navbar a:hover {
-            color: #d1e0ff;
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .content {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 20px;
+        }
+
+        .calculator-wrapper,
+        .team-section,
+        .intro-section,
+        .agent-section,
+        .feedback-section {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
             padding: 40px 20px;
+            border-radius: 20px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .calculator-container,
+        .team-content,
+        .intro-text,
+        .agent-container,
+        .feedback-section > div {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        h1, h2, h3 {
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .banner {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+            background-color: #f0f0f0;
+            margin-top: -90px;
+        }
+
+        button {
+            padding: 12px 30px;
+            font-size: 18px;
+            color: white;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        input, textarea, select {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            padding: 40px 0;
+            margin-top: 50px;
         }
 
         .team-section {
@@ -47,6 +148,7 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             margin-bottom: 40px;
             text-align: center;
+            margin-top: 20px;
         }
 
         .team-image {
@@ -68,25 +170,6 @@
             margin-bottom: 15px;
         }
 
-        nav {
-            background-color: #f8f9fa;
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            display: inline-block;
-            margin: 0 10px;
-            padding: 15px 30px;
-            background-color: #ffcc00; /* Gelb */
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            border-radius: 8px;
-            transition: background-color 0.3s;
-        }
-        nav a:hover {
-            background-color: #e6b800; /* Dunkleres Gelb */
-        }
         .intro-image img {
             width: 80%; /* Verkleinert das Bild um 20% */
             display: block;
@@ -97,8 +180,11 @@
 <body>
     <!-- Navigationsmenü -->
     <nav>
-        <a href="index.html">Home</a>
-        <a href="team.html">Wir sind</a>
+        <div class="nav-buttons">
+            <a href="index.html">Home</a>
+            <a href="team.html">Wir sind</a>
+            <a href="rente.html">Sichere Rente</a>
+        </div>
     </nav>
 
     <div class="content">
