@@ -157,7 +157,10 @@
     <!-- Terminbuchungs-Bereich -->
     <div class="booking-container">
         <h1 class="booking-title">Beratungstermin vereinbaren</h1>
-        <form class="booking-form" id="appointmentForm">
+        <form class="booking-form" id="appointmentForm" name="termine" method="POST" data-netlify="true">
+            <!-- Erforderliches Netlify Formular-Feld -->
+            <input type="hidden" name="form-name" value="termine">
+            
             <div class="form-group">
                 <label for="name">Name *</label>
                 <input type="text" id="name" name="name" required>
